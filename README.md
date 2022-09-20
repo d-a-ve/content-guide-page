@@ -1,1 +1,3 @@
-"# content-guide-page" 
+### A Content Guide Landing for Godspower
+
+live site: 

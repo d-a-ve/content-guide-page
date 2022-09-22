@@ -44,7 +44,7 @@ main{
 .title,
 .testimonial-title{
     text-align: center;
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     line-height: 2.6rem;
     text-transform: uppercase;
     font-weight: 600;
@@ -59,7 +59,7 @@ main{
 }
 
 .hero-img{
-    flex-basis: 44%;
+    flex-basis: 38%;
 }
 
 .hero-img img{
@@ -111,8 +111,13 @@ form input:focus{
     outline: none;
     padding: 1.2rem 1.5rem;
     font-weight: 600;
+    transition: transform 0.3s ease-in;
+    cursor: pointer;
 }
 
+.submit-btn:hover{
+    transform: translateY(-5px);
+}
 
 /* testimonials */
 .testimonials{
@@ -163,4 +168,62 @@ footer{
 footer p{
     margin-bottom: 3rem;
     font-size: 1.7rem;
+}
+
+@media screen and (min-width: 766px){
+    main{
+        width: 80%
+    }
+
+    .hero{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-text{
+        flex-basis: 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title{
+        font-size: 3rem;
+        text-align: left;
+        line-height: 4rem;
+    }
+
+    .sub-title{
+        font-size: 2.1rem;
+        text-align: left;
+        line-height: 3rem;
+    }
+
+    .form{
+        flex-direction: row;
+        margin: 5rem 0
+    }
+
+    
+    .testimonial-article:nth-of-type(1){
+        grid-template-areas: "one";
+    }
+    .testimonial-article:nth-of-type(2){
+        grid-area: 1 / 2;
+    }
+    .testimonial-article:nth-of-type(3){
+        grid-row: 1;
+    }
+    .testimonial-article:nth-of-type(4){
+        grid-template-areas: "four";
+    }
+
+    .testimonial-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
 }

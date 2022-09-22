@@ -205,7 +205,6 @@ footer p{
         flex-direction: row;
         margin: 5rem 0
     }
-
     
     .testimonial-article:nth-of-type(1){
         grid-template-areas: "one";
@@ -225,5 +224,4 @@ footer p{
         grid-template-columns: repeat(2, 1fr);
         gap: 2.5rem;
     }
-
 }

@@ -1,7 +1,7 @@
 /* font */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap');
 
-:root{
+:root {
     /* colors */
     --white: #fff;
     --red: rgb(242, 37, 37);
@@ -13,36 +13,41 @@
     font-size: 62.5%;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     font-size: 1.6rem;
     font-family: "Nunito-sans", sans-serif;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-main{
+main {
     width: 90%;
     margin: 0 auto;
     padding: 3.5rem 0 5rem;
 }
 
-.hero{
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
+.hero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
+.hero-text,
+.hero-img,
+.form-container {
+    grid-column: span 2;
+}
+
 .title,
-.testimonial-title{
+.testimonial-title {
     text-align: center;
     font-size: 1.8rem;
     line-height: 2.4rem;
@@ -51,37 +56,43 @@ main{
     margin-bottom: 0.7rem;
 }
 
-.sub-title{
+.sub-title {
     font-size: 1.5rem;
     color: var(--red);
     line-height: 1.9rem;
     text-align: center;
 }
 
-.hero-img{
+.hero-img {
     flex-basis: 38%;
 }
 
-.hero-img img{
+.hero-img img {
     width: 100%;
 }
 
 
 /* form */
 
-.form-container{
+.form-container {
     width: 100%;
     margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-form{
+form {
+    width: 100%;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
     gap: 1.4rem;
+    align-items: center;
+    justify-content: center;
 }
 
-form input:not(:nth-of-type(4)){
+form input {
     width: 100%;
     border-radius: 5px;
     background: var(--white);
@@ -91,15 +102,19 @@ form input:not(:nth-of-type(4)){
     border: 1px solid var(--grey);
 }
 
-form input:focus{
+form input:focus {
     border-color: var(--purple);
 }
 
-::placeholder{
+::placeholder {
     color: grey;
 }
 
-.submit-btn{
+a{
+    width: 100%;
+}
+
+.submit-btn {
     background: red;
     color: white;
     width: 100%;
@@ -115,26 +130,26 @@ form input:focus{
     cursor: pointer;
 }
 
-.submit-btn:hover{
+.submit-btn:hover {
     transform: translateY(-5px);
 }
 
 /* testimonials */
-.testimonials{
+.testimonials {
     margin: 5rem auto 0;
-    width:90%;
+    width: 90%;
 }
 
-.testimonial-title{
-    color:var(--purple);
+.testimonial-title {
+    color: var(--purple);
     font-size: 2rem;
 }
 
-.testimonial-container{
+.testimonial-container {
     padding: 2rem 0;
 }
 
-.testimonial-article{
+.testimonial-article {
     text-align: center;
     margin-bottom: 3.5rem;
     padding: 2.5rem 0 0;
@@ -143,7 +158,7 @@ form input:focus{
     border-radius: 5px;
 }
 
-.article-desc{
+.article-desc {
     font-size: 1.7rem;
     line-height: 1.9rem;
     margin-bottom: 1rem;
@@ -152,78 +167,92 @@ form input:focus{
 }
 
 .testimonial-img,
-.testimonial-img img{
+.testimonial-img img {
     width: 100%;
 }
 
 
 /* footer */
-footer{
+footer {
     width: 90%;
     margin: 0 auto;
     text-align: center;
     padding-bottom: 3rem;
 }
 
-footer p{
+footer p {
     margin-bottom: 3rem;
     font-size: 1.7rem;
 }
 
-@media screen and (min-width: 766px){
-    main{
-        width: 80%
+@media screen and (min-width: 766px) {
+    main {
+        width: 80%;
+        padding-top: 5rem;
     }
 
-    .hero{
-        flex-direction: row;
-        justify-content: space-between;
+    .hero {
+        row-gap: 4rem;
     }
 
-    .hero-text{
-        flex-basis: 45%;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        justify-content: center;
-        align-items: center;
+    .hero-img,
+    .form-container {
+        grid-column: span 1;
     }
 
-    .title{
-        font-size: 3rem;
-        text-align: left;
+    .title {
+        font-size: 3.5rem;
         line-height: 4rem;
+        margin-bottom: 1rem;
     }
 
-    .sub-title{
-        font-size: 2.1rem;
-        text-align: left;
+    .sub-title {
+        font-size: 2.4rem;
         line-height: 3rem;
     }
 
-    .form{
-        flex-direction: row;
-        margin: 5rem 0
+    .hero-img {
+        width: 80%;
+        margin: 0 auto;
     }
 
-    
-    .testimonial-article:nth-of-type(1){
+    .form {
+        gap: 2.5rem;
+    }
+
+    form input:not(:nth-of-type(4)) {
+        font-size: 1.8rem;
+    }
+
+    .submit-btn {
+        font-size: 1.9rem;
+    }
+
+    .testimonial-title {
+        font-size: 3rem;
+        line-height: 3.5rem;
+    }
+
+    .testimonial-article:nth-of-type(1) {
         grid-template-areas: "one";
     }
-    .testimonial-article:nth-of-type(2){
+
+    .testimonial-article:nth-of-type(2) {
         grid-area: 1 / 2;
     }
-    .testimonial-article:nth-of-type(3){
+
+    .testimonial-article:nth-of-type(3) {
         grid-row: 1;
     }
-    .testimonial-article:nth-of-type(4){
+
+    .testimonial-article:nth-of-type(4) {
         grid-template-areas: "four";
     }
 
-    .testimonial-container{
+    .testimonial-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2.5rem;
     }
-
 }
+

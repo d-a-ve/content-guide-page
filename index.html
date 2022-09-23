@@ -35,7 +35,10 @@
                     <input type="text" name="name" placeholder="Name" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
-                    <a href="https://rebrand.ly/CGFBO"><input type="submit" class="submit-btn" value="Get The Free Guide Here "></a>
+                    <!-- <a href="https://rebrand.ly/CGFBO" class="submit-btn"><input type="submit" value="Get The Free Guide Here"></a> -->
+                    <input type="submit"/>
+
+                    <!-- <input type="submit" class="submit-btn" value="Get The Free Guide Here "></a> -->
                 </form>
             </div>
         </section>
@@ -96,6 +99,20 @@
             <a href="#main" class="submit-btn">Get the Guide now!</a>
         </footer>
     </main>
+    
+    <script>
+
+    const form = document.querySelector(".form");
+
+    form.addEventListener("submit", e => {        
+        form.setAttribute("target", "_blank");
+        e.preventDefault();
+        myFunction();
+    })
+      function myFunction() {
+        window.location.href="https://rebrand.ly/CGFBO";
+      }
+    </script>
 </body>
 
 </html>

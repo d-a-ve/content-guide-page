@@ -111,6 +111,8 @@ form input:focus {
 }
 
 a{
+    color: white;
+    text-decoration: none;
     width: 100%;
 }
 

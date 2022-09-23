@@ -49,8 +49,8 @@ main {
 .title,
 .testimonial-title {
     text-align: center;
-    font-size: 2.1rem;
-    line-height: 2.6rem;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: 0.7rem;
@@ -222,6 +222,15 @@ footer p {
 
     form input:not(:nth-of-type(4)) {
         font-size: 1.8rem;
+    }
+
+    .submit-btn {
+        font-size: 1.9rem;
+    }
+
+    .testimonial-title {
+        font-size: 3rem;
+        line-height: 3.5rem;
     }
 
     .submit-btn {

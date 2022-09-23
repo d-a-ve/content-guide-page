@@ -10,6 +10,26 @@
     <meta name="keywords" content="content, content creation, increase sales, increase engagement">
     <title>Content Creation Guide</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '624786915866855');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=624786915866855&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -36,7 +56,7 @@
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
                     <!-- <a href="https://rebrand.ly/CGFBO" class="submit-btn"><input type="submit" value="Get The Free Guide Here"></a> -->
-                    <input type="submit"/>
+                    <input type="submit" />
 
                     <!-- <input type="submit" class="submit-btn" value="Get The Free Guide Here "></a> -->
                 </form>
@@ -99,19 +119,27 @@
             <a href="#main" class="submit-btn">Get the Guide now!</a>
         </footer>
     </main>
-    
+
     <script>
 
-    const form = document.querySelector(".form");
+        const form = document.querySelector(".form");
+        const handleSubmit = (e) => {
+            e.preventDefault();
 
-    form.addEventListener("submit", e => {        
-        form.setAttribute("target", "_blank");
-        e.preventDefault();
-        myFunction();
-    })
-      function myFunction() {
-        window.location.href="https://rebrand.ly/CGFBO";
-      }
+            // change the form to a new data type so it can be sent to the server
+            const formData = new FormData(form);
+
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString(),
+            })
+                // after sending the form to the server, redirect to this url
+                .then(window.location = "https://rebrand.ly/CGFBO")
+                .catch((error) => alert(error));
+        };
+
+        form.addEventListener("submit", handleSubmit);
     </script>
 </body>
 
